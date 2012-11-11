@@ -1,7 +1,7 @@
-PHP-PubMed-API-Wrapper
+PHP PubMed API Wrapper
 ======================
 
-**Author:** Asif Rahman
+**Author:** Asif Rahman  
 **Website:** [Demo, Documentation, and License](http://neuralengr.com/AR_PubMedAPI/)
 
 ## Description
@@ -16,4 +16,4 @@ A self-contained PHP class provides a wrapper around the PubMed API. Fully docum
 - Load search results from cache
 - Toggle lifetime of cache results
 
-See the script in action at [Soterix Medical](http://soterixmedical.com/learn/publications.php).
+See the script in action at the [Soterix Medical](http://soterixmedical.com/learn/publications.php) publications browser.
