@@ -54,7 +54,7 @@ if (isset($_GET['term']) && $_GET['term'] != '') {
 	remove_bad_characters();
 
 	include('PubMedAPI.php');
-	$PubMedAPI = new AR_PubMedAPI();
+	$PubMedAPI = new PubMedAPI();
 	if (isset($_GET['page'])) {
 		$PubMedAPI->retstart = $PubMedAPI->retmax*((int)$_GET['page'] - 1)+1;
 	}
