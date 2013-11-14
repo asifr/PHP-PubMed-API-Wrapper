@@ -105,7 +105,7 @@ class PubMedAPI
 			'retmode'	=> $this->retmode,
 			'retmax'	=> $this->retmax,
 			'retstart'	=> $this->retstart,
-			'term'		=> stripslashes($term)
+			'term'		=> stripslashes(urlencode($term))
 		);
 		foreach ($params as $key => $value) { $q[] = $key . '=' . $value; }
 		$httpquery = implode('&',$q);
