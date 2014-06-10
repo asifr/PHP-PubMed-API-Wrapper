@@ -24,7 +24,7 @@ class PubMedAPI
 
 	public $use_cache = false; // Save JSON formatted search results to a text file if TRUE
 	public $cache_dir = './'; // Directory where cached results will be saved
-	public $cache_life = 86400; // Caching time, in seconds, default 7 days
+	public $cache_life = 604800; // Caching time, in seconds, default 7 days
 	public $cache_file_hash = ''; // Sets to the md5 hash of the search term
 
 	public $term = '';
@@ -44,7 +44,7 @@ class PubMedAPI
 
 	public function query($term, $compact = false, $callback = false)
 	{
-		$this->term = str_replace('"', "", $term);
+		$this->term = $term;
 		if ($this->exact_match) {
 			$this->term = urlencode(sprintf('"%s"',$this->term));
 		}
@@ -105,7 +105,7 @@ class PubMedAPI
 			'retmode'	=> $this->retmode,
 			'retmax'	=> $this->retmax,
 			'retstart'	=> $this->retstart,
-			'term'		=> str_replace('%255D',']',str_replace('%255B','[',str_replace('%2529',')',str_replace('%2528','(',str_replace('%2B','+', stripslashes(urlencode(substr($term,3,-3))))))))
+			'term'		=> str_replace('%255D',']',str_replace('%255B','[',str_replace('%2529',')',str_replace('%2528','(',str_replace('%2B','+', stripslashes(urlencode($term)))))))
 		);
 		foreach ($params as $key => $value) { $q[] = $key . '=' . $value; }
 		$httpquery = implode('&',$q);
