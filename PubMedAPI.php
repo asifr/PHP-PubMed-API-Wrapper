@@ -64,7 +64,7 @@ class PubMedAPI
 
 		$xml = $this->pubmed_esearch($this->term);
 		$this->count = (int)$xml->Count;
-
+		
 		// esearch returns a list of IDs so we have to concatenate the list and do an efetch
 		$results = array();
 		if (isset($xml->IdList->Id) && !empty($xml->IdList->Id)) {
@@ -85,7 +85,7 @@ class PubMedAPI
 		if ($callback !== false) {
 			return call_user_func($callback,$results);
 		}
-
+		
 		return $results;
 	}
 
@@ -105,7 +105,7 @@ class PubMedAPI
 			'retmode'	=> $this->retmode,
 			'retmax'	=> $this->retmax,
 			'retstart'	=> $this->retstart,
-			'term'		=> stripslashes(urlencode($term))
+			'term'		=> str_replace('%255D',']',str_replace('%255B','[',str_replace('%2529',')',str_replace('%2528','(',str_replace('%2B','+', stripslashes(urlencode($term)))))))
 		);
 		foreach ($params as $key => $value) { $q[] = $key . '=' . $value; }
 		$httpquery = implode('&',$q);
