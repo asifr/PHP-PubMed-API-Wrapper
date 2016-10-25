@@ -39,8 +39,8 @@ class PubMedAPI
 	static public $proxy_password = '';
 	static public $curl_site_url = '';
 
-	private $esearch = 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?';
-	private $efetch = 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?';
+	private $esearch = 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?';
+	private $efetch = 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?';
 
 	public function query($term, $compact = false, $callback = false)
 	{
